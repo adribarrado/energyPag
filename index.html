@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Consumo Eléctrico</title>
+    <link rel="icon" type="image/png" href="img/logoPagina.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <img src="img/logo.png" alt="Logo" id="logo-header">
+            <h1>Gestor de Consumo Eléctrico</h1>
+        </div>
+    </header>
+
+    <main class="contenedor-tarjeta">
+        
+        <form id="form-consumo">
+            <div class="grupo-input">
+                <label for="aparato">Aparato Eléctrico:</label>
+                <input type="text" id="aparato" placeholder="Ej: Nevera" required>
+            </div>
+            
+            <div class="grupo-input">
+                <label for="horas">Horas de uso al día:</label>
+                <input type="number" id="horas" step="0.1" placeholder="Ej: 24" required>
+            </div>
+            
+            <div class="grupo-input">
+                <label for="consumo">Consumo del aparato (W):</label>
+                <input type="number" id="consumo" step="1" placeholder="Ej: 150" required>
+            </div>
+
+            <div class="grupo-botones">
+                <button type="submit" id="btn-agregar">Calcular y Añadir</button>
+                <button type="button" id="btn-exportar">Descargar CSV</button>
+            </div>
+        </form>
+
+        <div class="separador-seccion">
+            <h2>Resultados de Consumo Estimado</h2>
+        </div>
+
+        <div class="tabla-contenedor">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aparato</th>
+                        <th>Horas/Día</th>
+                        <th>Consumo (W)</th>
+                        <th>Gasto Mensual Estimado</th>
+                        <th>Clasificación</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpo-tabla">
+                    </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

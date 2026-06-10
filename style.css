@@ -1,0 +1,229 @@
+/* =========================================================================
+ * 🎨 RESETEO Y CONFIGURACIÓN DEL FONDO GENERAL
+ * ========================================================================= */
+* {
+    margin: 0;                   /* Elimina los márgenes por defecto del navegador */
+    padding: 0;                  /* Elimina el espaciado interno por defecto */
+    box-sizing: border-box;      /* Hace que el tamaño total incluya el borde y el padding */
+    font-family: 'Segoe UI', Roboto, sans-serif; /* Aplica una fuente moderna e industrial */
+}
+
+body {
+    /* Carga la imagen de las torres eléctricas y la fija para que no se mueva al hacer scroll */
+    background: url('img/fondo.jpg') no-repeat center center fixed;
+    background-size: cover;      /* Estira la imagen para que cubra toda la pantalla siempre */
+    min-height: 100vh;           /* Fuerza al cuerpo a ocupar el 100% de la altura de la ventana */
+    display: flex;               /* Activa el modelo de caja flexible */
+    flex-direction: column;      /* Organiza los elementos (header y main) en vertical */
+}
+
+/* =========================================================================
+ * 🧱 ESTILOS DE LA CABECERA (HEADER)
+ * ========================================================================= */
+header {
+    /* Color azul grisáceo oscuro satinado, extraído de la parte superior del cielo */
+    background-color: rgba(15, 23, 42, 0.95);
+    color: #ffffff;              /* Color blanco para el texto del título */
+    padding: 18px 20px;          /* Espaciado interno superior/inferior y laterales */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Sombra intensa para separar el header del fondo */
+}
+
+.header-content {
+    max-width: 900px;            /* Limita el ancho máximo del contenido */
+    margin: 0 auto;              /* Centra horizontalmente el bloque de contenido */
+    display: flex;               /* Alinea los elementos internos en fila */
+    align-items: center;         /* Centra verticalmente el logo y el texto */
+    gap: 15px;                   /* Separa el logo del texto del título */
+}
+
+#logo-header {
+    height: 42px;                /* Fija la altura del logotipo corporativo */
+    width: auto;                 /* Mantiene la proporción original de la imagen */
+}
+
+header h1 {
+    font-size: 1.6rem;           /* Tamaño del texto del título principal */
+    font-weight: 600;            /* Grosor semicorporativo para la tipografía */
+}
+
+/* =========================================================================
+ * 🎴 ¡EL CAMBIO CLAVE!: CUADRO CENTRAL TRANSLÚCIDO (GLASSMORPHISM)
+ * ========================================================================= */
+.contenedor-tarjeta {
+    /* Cambiamos el blanco sólido por un blanco con alta transparencia (35% de opacidad) */
+    background-color: rgba(255, 255, 255, 0.35);
+    
+    /* Desenfoque de fondo: crea el efecto de cristal esmerilado sobre la foto de las torres */
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px); /* Compatibilidad con navegadores Safari */
+    
+    max-width: 900px;            /* Mantiene alineado el cuadro con el ancho del header */
+    width: 92%;                  /* Hace que sea responsivo en teléfonos móviles */
+    margin: 40px auto;           /* Separa el cuadro del header y lo centra en la pantalla */
+    padding: 35px;               /* Margen interno para que los inputs no toquen los bordes */
+    border-radius: 16px;         /* Redondeado acentuado para un aspecto moderno */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); /* Sombra elegante que le da profundidad */
+    
+    /* Borde blanco semi-transparente que simula el reflejo del borde de un cristal */
+    border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+/* =========================================================================
+ * 📝 FORMULARIO DE RECOGIDA DE DATOS
+ * ========================================================================= */
+#form-consumo {
+    display: flex;               /* Caja flexible para organizar las preguntas */
+    flex-direction: column;      /* Pone una pregunta debajo de la otra */
+    gap: 20px;                   /* Separación uniforme entre cada bloque de input */
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;                    /* Distancia sutil entre el texto superior y la casilla */
+}
+
+.grupo-input label {
+    font-weight: 700;            /* Ponemos las etiquetas en negrita para asegurar legibilidad */
+    color: #0f172a;              /* Tono gris oscuro industrial casi negro */
+    font-size: 0.95rem;
+}
+
+.grupo-input input {
+    padding: 12px 14px;          /* Espacio para escribir cómodamente dentro de la celda */
+    border: 1px solid rgba(15, 23, 42, 0.25); /* Borde sutil */
+    background-color: rgba(255, 255, 255, 0.7); /* Casilla semi-translúcida para integrarse */
+    border-radius: 8px;          /* Redondeado suave en las esquinas de los inputs */
+    font-size: 1rem;
+    color: #0f172a;              /* Color de la letra que escribe el usuario */
+    outline: none;               /* Quita el borde azul por defecto del navegador */
+    transition: all 0.25s ease;  /* Transición suave para los cambios visuales */
+}
+
+/* EFECTO FOCO: Cuando el alumno hace clic en una casilla para escribir */
+.grupo-input input:focus {
+    border-color: #ea580c;       /* Cambia el contorno al color naranja del atardecer */
+    background-color: #ffffff;   /* Vuelve la casilla blanca pura para mejorar la escritura */
+    box-shadow: 0 0 0 4px rgba(234, 88, 12, 0.2); /* Crea un halo naranja brillante alrededor */
+}
+
+/* =========================================================================
+ * 🔘 CONTROLES INTERACTIVOS (BOTONES)
+ * ========================================================================= */
+.grupo-botones {
+    display: flex;               /* Pone los dos botones uno al lado del otro */
+    gap: 15px;                   /* Espacio de separación entre ambos */
+    margin-top: 10px;
+}
+
+button {
+    flex: 1;                     /* Hace que ambos botones midan exactamente lo mismo */
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: bold;           /* Resalta el texto interno del botón */
+    border: none;                /* Elimina el contorno plano estándar */
+    border-radius: 8px;
+    cursor: pointer;             /* Transforma el ratón en una mano interactiva */
+    transition: all 0.2s ease;   /* Suaviza los efectos visuales */
+}
+
+/* Botón Calcular: Color Gris Acero Oscuro */
+#btn-agregar {
+    background-color: #1e293b;
+    color: #ffffff;
+}
+#btn-agregar:hover {
+    background-color: #0f172a;   /* Se oscurece más al posicionar el cursor encima */
+    transform: translateY(-1px); /* Efecto sutil de elevación */
+}
+
+/* Botón Exportar: Color Naranja Atardecer */
+#btn-exportar {
+    background-color: #ea580c;
+    color: #ffffff;
+}
+#btn-exportar:hover {
+    background-color: #c2410c;   /* Cambia a un tono teja/tierra industrial */
+    transform: translateY(-1px); /* Efecto sutil de elevación */
+}
+
+/* Línea punteada de separación de bloques */
+.separador-seccion {
+    text-align: center;
+    margin: 40px 0 20px 0;
+    border-top: 2px dashed rgba(15, 23, 42, 0.2); /* Separación estética */
+    padding-top: 30px;
+}
+
+.separador-seccion h2 {
+    color: #0f172a;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+/* =========================================================================
+ * 📊 ESTRUCTURA DE LA TABLA DE RESULTADOS
+ * ========================================================================= */
+.tabla-contenedor {
+    overflow-x: auto;            /* Crea un scroll horizontal si la tabla no cabe en móviles */
+    margin-top: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;   /* Fusiona las líneas divisorias de las celdas */
+    text-align: left;
+}
+
+th, td {
+    padding: 14px 16px;          /* Espaciado interno de las celdas para airear los datos */
+    border-bottom: 1px solid rgba(15, 23, 42, 0.15); /* Línea divisoria gris entre registros */
+    font-size: 0.95rem;
+}
+
+/* Cabecera de la tabla */
+th {
+    background-color: rgba(15, 23, 42, 0.08); /* Fondo gris muy tenue para estructurar títulos */
+    color: #0f172a;
+    font-weight: 700;            /* Títulos de columnas bien marcados */
+}
+
+/* Filas de datos (mantienen base clara pero dejan pasar la transparencia de la tarjeta trasera) */
+tbody tr {
+    background-color: rgba(255, 255, 255, 0.3); /* Base de apoyo transparente para el texto */
+    transition: background-color 0.2s ease;
+}
+
+/* Filas alternas para facilitar el seguimiento visual del profesor */
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Efecto hover interactivo en las filas */
+tbody tr:hover {
+    background-color: rgba(234, 88, 12, 0.12); /* Brillo naranja muy suave al pasar el ratón */
+}
+
+td strong {
+    color: #0f172a;              /* Nombre del aparato con máxima fuerza visual */
+}
+
+/* RANGOS DEL SEMÁFORO ENERGÉTICO (Clases aplicadas dinámicamente) */
+.consumo-bajo {
+    color: #15803d;              /* Verde bosque para asegurar un contraste alto y legible */
+    font-weight: bold;
+}
+
+.consumo-medio {
+    color: #b45309;              /* Ámbar/Marrón oscuro para evitar amarillos invisibles */
+    font-weight: bold;
+}
+
+.consumo-alto {
+    color: #b91c1c;              /* Rojo intenso para destacar los altos gastos */
+    font-weight: bold;
+}
+
+.indicador-estado {
+    vertical-align: middle;      /* Centra perfectamente el círculo de luz con respecto al texto */
+}
